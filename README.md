@@ -1,2 +1,1 @@
-# pomwithplaywright
-Page object Model Design pattern implementaion with Playwright[TS]
+Page object Model Design pattern implementaion with Playwright
