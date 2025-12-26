@@ -1,4 +1,4 @@
-export class testConfig {
+export class TestConfig {
 
 appURL='http://localhost/opencart/upload/'
 
