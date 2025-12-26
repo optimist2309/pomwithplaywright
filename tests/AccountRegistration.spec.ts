@@ -1,14 +1,14 @@
-import {test, expect} from '@playwright/test';
-import {HomePage} from '../pages/homePage';
-import {RegistrationPage} from '../pages/regPage';
-import {RandomDataUtil} from '../utils/randomDatagen';
-import {TestConfig} from '../test.config';
+import { test, expect } from '@playwright/test';
+import { HomePage } from '../pages/homePage';
+import { RegistrationPage } from '../pages/regPage';
+import { RandomDataUtil } from '../utils/randomDatagen';
+import { TestConfig } from '../test.config';
 
 
 let HomePageObj: HomePage;
 let RegPageObj: RegistrationPage;
 
-test.beforeEach(async ({page}) => {
+test.beforeEach(async ({ page }) => {
     const config = new TestConfig();
     await page.goto(config.appURL);
     HomePageObj = new HomePage(page);
@@ -16,16 +16,16 @@ test.beforeEach(async ({page}) => {
 
 });
 
-test.afterEach(async ({page}) => {
+test.afterEach(async ({ page }) => {
     await page.close();
 });
 
-test('Account Registration Tests', async({page})=> {
-    
+test('Account Registration Tests', async ({ page }) => {
+
     // Home Page Actions
-    await HomePageObj.clickMyAccount()
+    await HomePageObj.clickMyAccount();
     await HomePageObj.clickRegister();
-    
+
     // Registration Page Actions
     await RegPageObj.setFirstName(RandomDataUtil.getFirstName());
     await RegPageObj.setLastName(RandomDataUtil.getlastName());
