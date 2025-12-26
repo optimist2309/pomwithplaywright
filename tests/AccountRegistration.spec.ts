@@ -4,19 +4,29 @@ import {RegistrationPage} from '../pages/regPage';
 import {RandomDataUtil} from '../utils/randomDatagen';
 import {TestConfig} from '../test.config';
 
-test('Account Registration Tests', async({page})=> {
 
-    // Navigate to Application URL
+let HomePageObj: HomePage;
+let RegPageObj: RegistrationPage;
+
+test.beforeEach(async ({page}) => {
     const config = new TestConfig();
     await page.goto(config.appURL);
+    HomePageObj = new HomePage(page);
+    RegPageObj = new RegistrationPage(page);
 
+});
+
+test.afterEach(async ({page}) => {
+    await page.close();
+});
+
+test('Account Registration Tests', async({page})=> {
+    
     // Home Page Actions
-    const HomePageObj = new HomePage(page);
     await HomePageObj.clickMyAccount()
     await HomePageObj.clickRegister();
     
     // Registration Page Actions
-    const RegPageObj = new RegistrationPage(page);
     await RegPageObj.setFirstName(RandomDataUtil.getFirstName());
     await RegPageObj.setLastName(RandomDataUtil.getlastName());
     await RegPageObj.setEmail(RandomDataUtil.getEmail());
