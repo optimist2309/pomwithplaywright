@@ -24,7 +24,7 @@ let myAccountPage: MyAccountPage;
 // This hook runs before each test
 test.beforeEach(async ({ page }) => {
   config = new TestConfig(); // Load config (URL, credentials)
-  await page.goto(config.appUrl); // Navigate to base URL
+  await page.goto(config.appURL); // Navigate to base URL
 
   // Initialize page objects
   homePage = new HomePage(page);
@@ -38,23 +38,23 @@ test.afterEach(async ({ page }) => {
 });
 
 
-test('User login test @master @sanity @regression',async()=>{
+test('User login test @master @sanity @regression', async () => {
 
-    //Navigate to Login page via Home page
+  //Navigate to Login page via Home page
 
-    await homePage.clickMyAccount();
-    await homePage.clickLogin();
+  await homePage.clickMyAccount();
+  await homePage.clickLogin();
 
-    //Enter valid credentials and log in
-    await loginPage.setEmail(config.email);
-    await loginPage.setPassword(config.password);
-    await loginPage.clickLogin();
+  //Enter valid credentials and log in
+  await loginPage.setEmail(config.email);
+  await loginPage.setPassword(config.password);
+  await loginPage.clickLogin();
 
-    //alternatevly
-    //await loginPage.login(config.email,config.password);
+  //alternatevly
+  //await loginPage.login(config.email,config.password);
 
-    //Verify successful login by checking 'My Account' page presence
-    const isLoggedIn=await myAccountPage.isMyAccountPageExists();
-    expect(isLoggedIn).toBeTruthy();
+  //Verify successful login by checking 'My Account' page presence
+  const isLoggedIn = await myAccountPage.isMyAccountPageExists();
+  expect(isLoggedIn).toBeTruthy();
 
 })

@@ -6,7 +6,14 @@
   "scripts": {
     "test:run_headed_chrome": " playwright test --headed --project=chromium",
     "test:run_headless": " playwright test",
-    "show_report":"playwright show-report"},
+    "show_report":"playwright show-report",
+  "test:master": "playwright test --grep @master", 
+    "test:sanity": "playwright test --grep @sanity", 
+    "test:regression": "playwright test --grep @regression", 
+    "test:datadriven": "playwright test --grep @datadriven", 
+    "test:master:headed": "playwright test --grep @master --headed", 
+    "test:sanity:debug": "playwright test --grep @sanity --debug" 
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/optimist2309/pomwithplaywright.git"
