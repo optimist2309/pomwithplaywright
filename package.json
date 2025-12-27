@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "Page object Model Design pattern implementaion with Playwright",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test:run_headed_chrome": " playwright test --headed --project=chromium",
+    "test:run_headless": " playwright test",
+    "show_report":"playwright show-report"},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/optimist2309/pomwithplaywright.git"
